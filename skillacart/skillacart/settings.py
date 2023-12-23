@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'django_browser_reload',
     'phonenumber_field',
+    'djrichtextfield',
 
     #tailwind app
     'tailwind',
@@ -100,6 +101,21 @@ TEMPLATES = [
         },
     },
 ]
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {  # CKEditor
+    'toolbar': [
+        {'items': ['Format', '-', 'Bold', 'Italic', '-',
+                'RemoveFormat']},
+        {'items': ['Link', 'Unlink', 'Image', 'Table']},
+        {'items': ['Source']}
+    ],
+        'format_tags': 'p;h1;h2;h3',
+        'width': 700
+    }
+}
 
 WSGI_APPLICATION = 'skillacart.wsgi.application'
 

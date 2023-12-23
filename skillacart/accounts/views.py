@@ -18,9 +18,12 @@ def register_page(request):
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
             if form.is_valid():
-                form = form.save(commit=False)
-                form.user = request.user
                 form.save()
+                # Get the username of the newly created user
+                user = form.cleaned_data.get('username')
+                # Send a success message
+                messages.success(request, 'Account was created for ' + user)
+                # Redirect to the home page
                 return redirect('home')
         else:
             form = CreateUserForm()
