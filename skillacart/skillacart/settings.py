@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,15 +32,42 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #jazzmin app
+    'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_browser_reload',
+
+    #tailwind app
+    'tailwind',
+    'theme',
+
+    #django apps
+    'shop'
 ]
 
+TAILWIND_APP_NAME = 'theme'
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "solar",
+}
+
+JAZZMIN_SETTINGS = {
+    "site_header": "Skillacart",
+    "site_brand": "Skillacart",
+}
+
 MIDDLEWARE = [
+    
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +78,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'skillacart.urls'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 TEMPLATES = [
     {
@@ -111,11 +143,18 @@ USE_I18N = True
 
 USE_TZ = True
 
+TAILWIND_CSS_PATH = 'css/dist/styles.css'
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "thems/static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'thems/static/images')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'thems/static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
