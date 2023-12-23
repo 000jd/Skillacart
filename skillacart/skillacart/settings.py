@@ -43,13 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_browser_reload',
+    'phonenumber_field',
 
     #tailwind app
     'tailwind',
     'theme',
 
     #django apps
-    'shop'
+    'shop',
+    'accounts',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -101,6 +103,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'skillacart.wsgi.application'
 
+AUTH_USER_MODEL = 'accounts.Users'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
