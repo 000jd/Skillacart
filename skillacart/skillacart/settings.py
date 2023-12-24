@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     #django apps
     'shop',
     'accounts',
+    'orders',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -89,7 +90,7 @@ INTERNAL_IPS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

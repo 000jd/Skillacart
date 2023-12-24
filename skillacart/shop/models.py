@@ -40,8 +40,8 @@ class Product(models.Model):
         null=True,
         blank=True,
     )
-    name = models.CharField(max_length=200, db_index=True)  # Add db_index for name
-    slug = models.SlugField(unique=True, null=True, blank=True, db_index=True)  # Add db_index for slug
+    name = models.CharField(max_length=200, db_index=True)  
+    slug = models.SlugField(unique=True, null=True, blank=True, db_index=True) 
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField()
     description = RichTextField()
