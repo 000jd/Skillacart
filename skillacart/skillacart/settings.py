@@ -171,7 +171,7 @@ TAILWIND_CSS_PATH = 'css/dist/styles.css'
 STATIC_URL = "thems/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'thems/static/images')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'thems/static'),
+    os.path.join(BASE_DIR, 'theme/static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

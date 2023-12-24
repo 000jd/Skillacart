@@ -7,6 +7,8 @@
 
 module.exports = {
     content: [
+        './pages/**/*.{html,js}',
+        './components/**/*.{html,js}',
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
          */
