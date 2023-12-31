@@ -6,8 +6,16 @@ class Users(AbstractUser):
     """
     Custom user model.
     """
-
+    email = models.EmailField(
+        verbose_name='Email',
+        max_length=255,
+        unique=True,  
+    )
     phone_number = PhoneNumberField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = [] 
 
     class Meta:
         verbose_name = 'User'

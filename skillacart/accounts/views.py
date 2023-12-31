@@ -28,7 +28,7 @@ def register_page(request):
         else:
             form = CreateUserForm()
 
-        return render(request, 'components/register.html', context={'form': form})
+        return render(request, 'screens/auth/signup.html', context={'form': form})
 
 
 def login_page(request):
@@ -51,7 +51,7 @@ def login_page(request):
             else:
                 messages.info(request, 'Username OR password is incorrect')
 
-        return render(request, 'components/login.html')
+        return render(request, 'screens/auth/signin.html')
 
 
 @login_required
